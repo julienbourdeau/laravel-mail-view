@@ -1,0 +1,54 @@
+{
+    "name": "julienbourdeau/laravel-mail-view",
+    "description": "Preview emails and notifications in your browser",
+    "keywords": [
+        "julienbourdeau",
+        "laravel-mail-view"
+    ],
+    "homepage": "https://github.com/julienbourdeau/laravel-mail-view",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Julien Bourdeau",
+            "email": "julien@sigerr.org",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Julienbourdeau\\LaravelMailView\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Julienbourdeau\\LaravelMailView\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Julienbourdeau\\LaravelMailView\\LaravelMailViewServiceProvider"
+            ],
+            "aliases": {
+                "LaravelMailView": "Julienbourdeau\\LaravelMailView\\LaravelMailViewFacade"
+            }
+        }
+    }
+}
