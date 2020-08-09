@@ -16,7 +16,7 @@
         <ul>
             @forelse ($methods as $methodName)
                 <li>
-                    <a href="{{ route('mailview.show', [$className, $methodName]) }}">{{ $methodName }}</a>
+                    <a href="{{ route('mail-view.show', [$className, $methodName]) }}">{{ $methodName }}</a>
                 </li>
             @empty
                 <li>No method found in {{ $className }}</li>

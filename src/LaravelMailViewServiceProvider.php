@@ -2,6 +2,7 @@
 
 namespace Julienbourdeau\LaravelMailView;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
 class LaravelMailViewServiceProvider extends ServiceProvider
@@ -21,6 +22,10 @@ class LaravelMailViewServiceProvider extends ServiceProvider
 
         $this->app->bind(MailViewFinder::class, function () {
             return new MailViewFinder($this->app);
+        });
+
+        Gate::define('viewMailView', function ($user) {
+            return false;
         });
 
         if ($this->app->runningInConsole()) {
@@ -57,8 +62,8 @@ class LaravelMailViewServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'mail-view');
 
         // Register the main class to use with the facade
-        $this->app->singleton('laravel-mail-view', function () {
-            return new LaravelMailView;
-        });
+//        $this->app->singleton('laravel-mail-view', function () {
+//            return new LaravelMailView;
+//        });
     }
 }

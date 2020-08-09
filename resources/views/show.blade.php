@@ -9,12 +9,14 @@
 </head>
 <body style="padding: 36px;">
 
+    <a href="{{ route('mail-view.index') }}"><- Back to list</a>
+
     <h1>{{ $title }}</h1>
 
 
     @if(count($from) == 1 && count($fromAddresses = $from[0]->getNameAddressStrings()) <= 1)
 
-        <p><strong>From:</strong> @forelse($fromAddresses as $fromAddress) {{ $fromAddress }} @empty No from address set @endforelse</p>
+        <p><strong>From:</strong> @foreach($fromAddresses as $fromAddress) {{ $fromAddress }} @endforeach</p>
 
     @else
         <p style="color: red;">There is multiple <i>from</i> header, please look at the full headers below.</p>
