@@ -24,6 +24,8 @@ class MailViewController extends BaseController
         $className = rtrim(config('mail-view.namespace'), "\\") ."\\".$className;
         $mailable =  (new $className)->{$methodName}();
 
+        $reflextionMethod = (new \ReflectionClass(new $className))->getMethod($methodName);
+
         /** @var \Illuminate\Mail\Message $message */
         $message = $mailable->send($this->getNullMailer());
 
@@ -32,7 +34,8 @@ class MailViewController extends BaseController
             'subject' => $message->getHeaders()->getAll('subject'),
             'from' => $message->getHeaders()->getAll('from'),
             'headers' => $message->getHeaders()->getAll(),
-            'body' => $message->getSwiftMessage()->getBody()
+            'body' => $message->getSwiftMessage()->getBody(),
+            'attributes' => MailViewFinder::getMethodAttributes($reflextionMethod),
         ]);
     }
 

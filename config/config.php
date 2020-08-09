@@ -7,7 +7,7 @@ return [
 
     'url_prefix' => '/mail_view',
 
-    'folder' => 'tests/MailView',
+    'dir' => 'tests/MailView',
 
     'namespace' => 'Tests\MailView',
 
