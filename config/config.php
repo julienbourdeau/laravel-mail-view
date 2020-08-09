@@ -5,4 +5,10 @@
  */
 return [
 
+    'url_prefix' => '/mail_view',
+
+    'folder' => 'tests/MailView',
+
+    'namespace' => 'Tests\MailView',
+
 ];
