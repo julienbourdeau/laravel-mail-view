@@ -1,6 +1,6 @@
 <?php
 
-namespace Julienbourdeau\LaravelMailView;
+namespace Julienbourdeau\MailView;
 
 use Illuminate\Contracts\Mail\Mailable as MailableContract;
 use Illuminate\Mail\Mailer;

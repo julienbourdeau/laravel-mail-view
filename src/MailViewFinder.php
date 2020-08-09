@@ -1,6 +1,6 @@
 <?php
 
-namespace Julienbourdeau\LaravelMailView;
+namespace Julienbourdeau\MailView;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;

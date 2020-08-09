@@ -1,6 +1,6 @@
 <?php
 
-namespace Julienbourdeau\LaravelMailView;
+namespace Julienbourdeau\MailView;
 
 use App\Mail\PaymentOrderConfirmed;
 use App\Payment;
@@ -14,7 +14,7 @@ class MailViewController extends BaseController
 {
     public function index()
     {
-        return view('laravel-mail-view::index', [
+        return view('mail-view::index', [
             'mailViewCollection' => app()->make(MailViewFinder::class)->find(),
         ]);
     }
@@ -27,7 +27,7 @@ class MailViewController extends BaseController
         /** @var \Illuminate\Mail\Message $message */
         $message = $mailable->send($this->getNullMailer());
 
-        return view('laravel-mail-view::show', [
+        return view('mail-view::show', [
             'title' => Str::of($methodName)->kebab()->replace('-', ' ')->title(),
             'subject' => $message->getHeaders()->getAll('subject'),
             'from' => $message->getHeaders()->getAll('from'),

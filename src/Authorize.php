@@ -1,6 +1,6 @@
 <?php
 
-namespace Julienbourdeau\LaravelMailView;
+namespace Julienbourdeau\MailView;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Gate;
@@ -15,6 +15,6 @@ class Authorize
     protected function check($request)
     {
         return App::environment('local') ||
-            Gate::check('viewMailView', [$request->user()]);
+            Gate::check('mail_view', [$request->user()]);
     }
 }

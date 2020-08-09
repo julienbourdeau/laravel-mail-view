@@ -3,7 +3,7 @@
 namespace Julienbourdeau\LaravelMailView\Tests;
 
 use Orchestra\Testbench\TestCase;
-use Julienbourdeau\LaravelMailView\LaravelMailViewServiceProvider;
+use Julienbourdeau\MailView\LaravelMailViewServiceProvider;
 
 class ExampleTest extends TestCase
 {
@@ -12,7 +12,7 @@ class ExampleTest extends TestCase
     {
         return [LaravelMailViewServiceProvider::class];
     }
-    
+
     /** @test */
     public function true_is_true()
     {

@@ -1,7 +1,7 @@
 <?php
 
-use Julienbourdeau\LaravelMailView\MailViewController;
-use Julienbourdeau\LaravelMailView\Authorize;
+use Julienbourdeau\MailView\MailViewController;
+use Julienbourdeau\MailView\Authorize;
 
 Route::middleware(Authorize::class)->name('mail-view.')->group(function () {
 
