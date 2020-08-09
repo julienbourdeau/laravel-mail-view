@@ -15,13 +15,16 @@
             "role": "Developer"
         }
     ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": "^7.1",
         "illuminate/support": "^7.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^4.0",
-        "phpunit/phpunit": "^8.0"
+        "orchestra/testbench": "^5.3",
+        "pestphp/pest": "^0.2.4",
+        "pestphp/pest-plugin-laravel": "^0.2.0"
     },
     "autoload": {
         "psr-4": {
