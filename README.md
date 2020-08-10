@@ -1,35 +1,23 @@
-# Very short description of the package
+# Mail View - Email Preview for Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/julienbourdeau/laravel-mail-view.svg?style=flat-square)](https://packagist.org/packages/julienbourdeau/laravel-mail-view)
-[![Build Status](https://img.shields.io/travis/julienbourdeau/laravel-mail-view/master.svg?style=flat-square)](https://travis-ci.org/julienbourdeau/laravel-mail-view)
-[![Quality Score](https://img.shields.io/scrutinizer/g/julienbourdeau/laravel-mail-view.svg?style=flat-square)](https://scrutinizer-ci.com/g/julienbourdeau/laravel-mail-view)
-[![Total Downloads](https://img.shields.io/packagist/dt/julienbourdeau/laravel-mail-view.svg?style=flat-square)](https://packagist.org/packages/julienbourdeau/laravel-mail-view)
+This package lets you preview how your emails look by visiting a special URL that renders them. The goal is to create 
+a fake situation (create dummy user with orders for instance) to help you design the email templates.
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+This package is heavily inspired by [Rails ActiveMailer Preview](https://guides.rubyonrails.org/action_mailer_basics.html#previewing-emails)
+and the `mail view` name is an homage to the [original gem](https://guides.rubyonrails.org/action_mailer_basics.html#previewing-emails).
 
-## Installation
+![MailView list of template screenshot](https://user-images.githubusercontent.com/1525636/89820410-42543100-db4d-11ea-8b3b-24d4d1ee8867.png)
+![MailView render template screenshot](https://user-images.githubusercontent.com/1525636/89820420-454f2180-db4d-11ea-8151-f78febd09d84.png)
 
-You can install the package via composer:
+## Installation & Usage
 
-```bash
-composer require julienbourdeau/laravel-mail-view
-```
+Please find the complete documentation here: https://www.sigerr.org/docs/laravel-mail-view
 
-## Usage
-
-``` php
-// Usage description here
-```
-
-### Testing
-
-``` bash
-composer test
-```
 
 ### Changelog
 
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+Please see [CHANGELOG](https://www.sigerr.org/docs/laravel-mail-view#changelog) for more information what has changed recently.
 
 ## Contributing
 

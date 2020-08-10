@@ -1,7 +1,3 @@
 # Changelog
 
-All notable changes to `laravel-mail-view` will be documented in this file
-
-## 1.0.0 - 201X-XX-XX
-
-- initial release
+Changelog is available here: https://www.sigerr.org/docs/laravel-mail-view#changelog
