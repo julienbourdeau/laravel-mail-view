@@ -22,21 +22,37 @@ class MailViewController extends BaseController
     public function show($className, $methodName)
     {
         $className = rtrim(config('mail-view.namespace'), "\\") ."\\".$className;
-        $mailable =  (new $className)->{$methodName}();
+        $preview = new $className;
+        $mailable =  $preview->{$methodName}();
 
-        $reflextionMethod = (new \ReflectionClass(new $className))->getMethod($methodName);
+        $reflexionClass = new \ReflectionClass(new $className);
+        $reflextionMethod = $reflexionClass->getMethod($methodName);
 
         /** @var \Illuminate\Mail\Message $message */
         $message = $mailable->send($this->getNullMailer());
 
-        return view('mail-view::show', [
+        $attributes = [
             'title' => Str::of($methodName)->kebab()->replace('-', ' ')->title(),
             'subject' => $message->getHeaders()->getAll('subject'),
             'from' => $message->getHeaders()->getAll('from'),
             'headers' => $message->getHeaders()->getAll(),
             'body' => $message->getSwiftMessage()->getBody(),
             'attributes' => MailViewFinder::getMethodAttributes($reflextionMethod),
-        ]);
+        ];
+
+        if (method_exists($preview, $afterMethodName = 'after'.Str::studly($methodName))) {
+            $afterReflextionMethod = $reflexionClass->getMethod($afterMethodName);
+            $afterReflextionMethod->setAccessible(true);
+            $afterReflextionMethod->invoke($preview, $afterMethodName);
+        }
+
+        if (method_exists($preview, $afterAllMethodName = 'afterAll')) {
+            $afterReflextionMethod = $reflexionClass->getMethod($afterAllMethodName);
+            $afterReflextionMethod->setAccessible(true);
+            $afterReflextionMethod->invoke($preview, $afterAllMethodName);
+        }
+
+        return view('mail-view::show', $attributes);
     }
 
     private function getNullMailer()
