@@ -35,6 +35,7 @@ class MailViewFinder
     {
         return [
             'methodName' => $method->getName(),
+            'className' => $method->getDeclaringClass()->getName(),
             'source' => static::getSourceCode($method),
             'comment' => static::getComment($method),
             'file' => $method->getFileName().':'.($method->getStartLine() - 1),
@@ -57,7 +58,7 @@ class MailViewFinder
         return Str::of($method->getDocComment())->after('/** ')->beforeLast(' */')->__toString();
     }
 
-    public function find(): Collection
+    public function findAll(): Collection
     {
         $namespace = config('mail-view.namespace');
 

@@ -11,4 +11,6 @@ return [
 
     'namespace' => 'Tests\MailView',
 
+    'to' => 'julien@example.com',
+
 ];

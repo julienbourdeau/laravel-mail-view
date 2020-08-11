@@ -5,6 +5,7 @@ namespace Julienbourdeau\MailView;
 use App\Mail\PaymentOrderConfirmed;
 use App\Payment;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Ramsey\Uuid\Uuid;
@@ -15,7 +16,7 @@ class MailViewController extends BaseController
     public function index()
     {
         return view('mail-view::index', [
-            'mailViewCollection' => app()->make(MailViewFinder::class)->find(),
+            'mailViewCollection' => app()->make(MailViewFinder::class)->findAll(),
         ]);
     }
 
@@ -55,6 +56,31 @@ class MailViewController extends BaseController
         return view('mail-view::show', $attributes);
     }
 
+    public function sendAll()
+    {
+        $email = $this->getEmailAddresse();
+        $templateList = app()->make(MailViewFinder::class)->findAll();
+
+        $templateList->flatten(1)->each(function ($attr) use ($email) {
+            $mailable = (new $attr['className'])->{$attr['methodName']}();
+            return Mail::to($email)->send($mailable);
+        });
+
+        return redirect(route('mail-view.index'))->with('status', "All emails preview were sent to $email");
+    }
+
+    public function send($className, $methodName)
+    {
+        $className = rtrim(config('mail-view.namespace'), "\\") . "\\" . $className;
+        $preview = new $className;
+        $mailable = $preview->{$methodName}();
+        $email = $this->getEmailAddresse();
+
+        Mail::to($email)->send($mailable);
+
+        return redirect(route('mail-view.index'))->with('status', Str::studly($methodName)." preview sent to $email");
+    }
+
     private function getNullMailer()
     {
         $transport = Mail::createTransport(['host'=> 'local.local', 'port' => 666]);
@@ -64,5 +90,10 @@ class MailViewController extends BaseController
             app()['view'],
             new \Swift_Mailer($transport)
         );
+    }
+
+    private function getEmailAddresse()
+    {
+        return Auth::user()->email ?? config('mail-view.to');
     }
 }

@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="my-6">
-        <a class="text-gray-700 hover:text-blue-600" href="{{ route('mail-view.index') }}">← Back to list</a>
+        <a class="text-gray-700 hover:text-gray-900" href="{{ route('mail-view.index') }}">← Back to list</a>
     </div>
 
     <div class="bg-white rounded shadow overflow-x-auto max-w-6xl px-4 py-6">

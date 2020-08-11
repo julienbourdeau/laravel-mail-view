@@ -2,28 +2,28 @@
 
 @section('content')
 
-    <h1 class="text-4xl font-bold mb-12">Mail View</h1>
+    <div class="flex justify-between max-w-6xl">
+        <h1 class="text-4xl font-bold mb-12">Mail View</h1>
+        <div id="page-actions">
+            <a href="{{ route('mail-view.send-all') }}" class="block mt-1 py-2 px-3 bg-white text-gray-700 uppercase text-sm font-semibold shadow rounded border hover:border-gray-700">Send all</a>
+        </div>
+    </div>
+
+    @if (session('status'))
+        <div class="bg-white p-6 border-2 border-green-600 text-green-700 font-bold mb-12 rounded shadow overflow-x-auto max-w-6xl">
+            {{ session('status') }}
+        </div>
+    @endif
 
     @forelse($mailViewCollection as $className => $methods)
         <h2 class="text-2xl mb-6">{{ Str::beforeLast($className, 'Preview') }}</h2>
 
-{{--        <ul class="pl-6 list-disc text-blue-800 space-y-2">--}}
-{{--            @forelse ($methods as $attributes)--}}
-{{--                <li>--}}
-{{--                    <a class="hover:text-blue-600 text-lg" href="{{ route('mail-view.show', [$className, $attributes['methodName']]) }}">--}}
-{{--                        {{ $attributes['methodName'] }}--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--            @empty--}}
-{{--                <li>No method found in {{ $className }}</li>--}}
-{{--            @endforelse--}}
-{{--        </ul>--}}
-
-        <div class="bg-white rounded shadow overflow-x-auto max-w-6xl">
+        <div class="bg-white mb-12 rounded shadow overflow-x-auto max-w-6xl">
             <table class="w-full whitespace-no-wrap">
                 <tr class="text-left font-bold">
                     <th class="p-6 w-12">#</th>
                     <th class="px-6 pt-6 pb-4">Preview</th>
+                    <th class="p-6 w-12">&nbsp;</th>
                 </tr>
                 @forelse($methods as $attributes)
                     <tr class="hover:bg-grey-lightest focus-within:bg-grey-lightest">
@@ -35,10 +35,15 @@
                         <td class="border-t">
                             <a href="{{ route('mail-view.show', [$className, $attributes['methodName']]) }}">
                                 <div class="px-6 py-4 flex flex-col leading-relaxed outline-0" tabindex="-1">
-                                    <strong>{{ $attributes['methodName'] }}</strong>
+                                    <strong>{{ \Illuminate\Support\Str::studly($attributes['methodName']) }}</strong>
                                     <small>{{ $attributes['comment'] }}</small>
                                 </div>
                             </a>
+                        </td>
+                        <td class="border-t">
+                            <div class="px-6 py-4 flex items-center focus:text-indigo">
+                                <a href="{{ route('mail-view.send', [$className, $attributes['methodName']]) }}" class="py-2 px-3 text-gray-700 uppercase text-sm font-semibold  hover:text-gray-900">Send</a>
+                            </div>
                         </td>
                     </tr>
                 @empty
