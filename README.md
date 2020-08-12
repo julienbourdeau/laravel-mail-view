@@ -8,7 +8,7 @@ a fake situation (create dummy user with orders for instance) to help you design
 This package is heavily inspired by [Rails ActiveMailer Preview](https://guides.rubyonrails.org/action_mailer_basics.html#previewing-emails)
 and the `mail view` name is an homage to the [original gem](https://guides.rubyonrails.org/action_mailer_basics.html#previewing-emails).
 
-![MailView list of template screenshot](https://user-images.githubusercontent.com/1525636/89820410-42543100-db4d-11ea-8b3b-24d4d1ee8867.png)
+![MailView list of template screenshot](https://user-images.githubusercontent.com/1525636/89986180-767a3f80-dc7c-11ea-9806-f06459e2ab18.png)
 ![MailView render template screenshot](https://user-images.githubusercontent.com/1525636/89820420-454f2180-db4d-11ea-8151-f78febd09d84.png)
 
 ## Installation & Usage
