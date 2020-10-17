@@ -58,7 +58,7 @@ class MailViewController extends BaseController
 
     public function sendAll()
     {
-        $email = $this->getEmailAddresse();
+        $email = $this->getEmailAddress();
         $templateList = app()->make(MailViewFinder::class)->findAll();
 
         $templateList->flatten(1)->each(function ($attr) use ($email) {
@@ -74,7 +74,7 @@ class MailViewController extends BaseController
         $className = rtrim(config('mail-view.namespace'), "\\") . "\\" . $className;
         $preview = new $className;
         $mailable = $preview->{$methodName}();
-        $email = $this->getEmailAddresse();
+        $email = $this->getEmailAddress();
 
         Mail::to($email)->send($mailable);
 
@@ -96,7 +96,7 @@ class MailViewController extends BaseController
         );
     }
 
-    private function getEmailAddresse()
+    private function getEmailAddress()
     {
         return Auth::user()->email ?? config('mail-view.to');
     }
