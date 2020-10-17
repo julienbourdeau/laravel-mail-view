@@ -83,7 +83,11 @@ class MailViewController extends BaseController
 
     private function getNullMailer()
     {
-        $transport = Mail::createTransport(['host'=> 'local.local', 'port' => 666]);
+        $transport = Mail::createTransport([
+            'transport' => 'smtp',
+            'host'=> 'mail-view.local',
+            'port' => 666
+        ]);
 
         return new NullMailer(
             'null_mailer',
