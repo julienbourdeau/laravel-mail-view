@@ -18,5 +18,13 @@
 
     </div>
 
+    <div class="text-center text-gray-500">
+        <span class="text-gray-600">Laravel MailView</span>
+        <span class="px-2">&#10045;</span>
+        <a class="hover:underline" href="https://www.github.com/julienbourdeau/laravel-mail-view">GitHub</a>
+        <span class="px-2">&#10045;</span>
+        <a class="hover:underline" href="https://www.sigerr.org" title="Julien Bourdeau">Author</a>
+    </div>
+
 </body>
 </html>
