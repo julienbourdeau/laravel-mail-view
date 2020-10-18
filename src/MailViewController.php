@@ -33,7 +33,7 @@ class MailViewController extends BaseController
         $message = $mailable->send($this->getNullMailer());
 
         $attributes = [
-            'title' => Str::of($methodName)->kebab()->replace('-', ' ')->title(),
+            'title' => MailViewFinder::methodToTitle($methodName),
             'subject' => $message->getHeaders()->getAll('subject'),
             'from' => $message->getHeaders()->getAll('from'),
             'headers' => $message->getHeaders()->getAll(),

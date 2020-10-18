@@ -8,7 +8,7 @@
 
     <title>[MailView] @yield('title')</title>
 
-    <link href="https://unpkg.com/tailwindcss@1.6.2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@1.9.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="font-sans leading-none text-gray-900 antialiased bg-gray-100">
 
@@ -18,10 +18,12 @@
 
     </div>
 
-    <div class="text-center text-gray-500">
+    <div class="text-center text-gray-500 mt-20 mb-12">
         <span class="text-gray-600">Laravel MailView</span>
         <span class="px-2">&#10045;</span>
         <a class="hover:underline" href="https://www.github.com/julienbourdeau/laravel-mail-view">GitHub</a>
+        <span class="px-2">&#10045;</span>
+        <a class="hover:underline" href="https://www.sigerr.org/docs/laravel-mail-view">Docs</a>
         <span class="px-2">&#10045;</span>
         <a class="hover:underline" href="https://www.sigerr.org" title="Julien Bourdeau">Author</a>
     </div>

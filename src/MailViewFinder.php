@@ -34,7 +34,8 @@ class MailViewFinder
     public static function getMethodAttributes(\ReflectionMethod $method)
     {
         return [
-            'methodName' => $method->getName(),
+            'methodName' => $name = $method->getName(),
+            'methodTitle' => self::methodToTitle($name),
             'className' => $method->getDeclaringClass()->getName(),
             'source' => static::getSourceCode($method),
             'comment' => static::getComment($method),
@@ -88,5 +89,10 @@ class MailViewFinder
         }
 
         return self::$declaredClasses;
+    }
+
+    public static function methodToTitle($methodName)
+    {
+        return Str::of($methodName)->kebab()->replace('-', ' ')->title();
     }
 }

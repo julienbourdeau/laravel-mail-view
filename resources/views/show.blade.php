@@ -10,8 +10,7 @@
 
         <h1 class="text-3xl font-bold mb-12">{{ $title }}</h1>
 
-
-        <ul class="space-y-2">
+        <ul class="space-y-2 mb-12">
 
             @if(count($from) == 1 && count($fromAddresses = $from[0]->getNameAddressStrings()) <= 1)
                 <li><strong>From:</strong> @foreach($fromAddresses as $fromAddress) {{ $fromAddress }} @endforeach</li>
@@ -27,22 +26,26 @@
         </ul>
 
 
-        <details class="mt-8">
+        <details class="mb-8">
             <summary>See all headers</summary>
-            <ul class="space-y-1 mt-3">
+            <ul class="space-y-1 mt-3 ml-4">
                 @foreach($headers as $header)
                     <li>{{ $header }}</li>
                 @endforeach
             </ul>
         </details>
 
-        <details class="mt-8">
+        <details class="mb-44">
             <summary>Show preview code</summary>
-            <p class="mt-3">This is the code used to generate this email template</p>
-            <pre>
-                <ul class="space-y-1 mt-3 font-mono">@foreach($attributes['source'] as $line)<li>{{ $line }}</li>@endforeach</ul>
-            </pre>
-            <p class="text-gray-600">{{ $attributes['file'] }}</p>
+            <div class="mt-3 ml-4">
+                This is the code used to generate this email template
+                <pre class="mt-3 font-mono">
+                    <code class="php">
+                    <ul class="space-y-1">@foreach($attributes['source'] as $line)<li>{{ $line }}</li>@endforeach</ul>
+                    </code>
+                </pre>
+                <p class="text-gray-600">{{ $attributes['file'] }}</p>
+            </div>
         </details>
 
     </div>

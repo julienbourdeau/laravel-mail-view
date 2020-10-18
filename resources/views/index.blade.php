@@ -35,7 +35,7 @@
                         <td class="border-t">
                             <a href="{{ route('mail-view.show', [$className, $attributes['methodName']]) }}">
                                 <div class="px-6 py-4 flex flex-col leading-relaxed outline-0" tabindex="-1">
-                                    <strong>{{ \Illuminate\Support\Str::studly($attributes['methodName']) }}</strong>
+                                    <strong>{{ $attributes['methodTitle'] }}</strong>
                                     <small>{{ $attributes['comment'] }}</small>
                                 </div>
                             </a>
