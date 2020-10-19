@@ -2,6 +2,8 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/julienbourdeau/laravel-mail-view.svg?style=flat-square)](https://packagist.org/packages/julienbourdeau/laravel-mail-view)
 
+![Laravel MailView Logo Banner](https://user-images.githubusercontent.com/1525636/96405824-66339300-11de-11eb-9698-11c69b0ed60a.png)
+
 This package lets you preview how your emails look by visiting a special URL that renders them. The goal is to create 
 a fake situation (create dummy user with orders for instance) to help you design the email templates.
 
