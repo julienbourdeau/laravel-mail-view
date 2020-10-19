@@ -28,5 +28,8 @@
         <a class="hover:underline" href="https://www.sigerr.org" title="Julien Bourdeau">Author</a>
     </div>
 
+    @if(\Illuminate\Support\Facades\View::exists('mail-view::scripts'))
+        @include('mail-view::scripts')
+    @endif
 </body>
 </html>
