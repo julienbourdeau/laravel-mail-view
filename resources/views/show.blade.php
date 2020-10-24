@@ -50,8 +50,33 @@
 
     </div>
 
-    <div class="mt-10 mb-12 border-dotted border-2 border-gray-800">
-        {!! $body !!}
+    <div class="mt-10 mb-12" x-data>
+
+        <div class="relative z-0 inline-flex mb-4 shadow rounded">
+
+            @foreach($breakpoints as $label => $value)
+                @php
+                    $activeClasses = 'bg-gray-100 text-gray-700'; // TODO: figure it out
+                    if ($loop->first) {
+                        $classes = 'relative inline-flex items-center px-4 py-2 rounded-l bg-white text-xs leading-5 font-medium text-gray-700 hover:text-black focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150';
+                    } elseif ($loop->last) {
+                        $classes = '-ml-px relative inline-flex items-center px-4 py-2 rounded-r bg-white text-xs leading-5 font-medium text-gray-700 hover:text-black focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150';
+                    } else {
+                        $classes = '-ml-px relative inline-flex items-center px-4 py-2  bg-white text-xs leading-5 font-medium text-gray-700 hover:text-black focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150';
+                    }
+                @endphp
+
+              <button type="button" @click="$el.style.width = '{{ $value }}'" class="{{ $classes }}">
+                  {{ $label }}
+              </button>
+            @endforeach
+
+        </div>
+
+        <div class="border-dashed border-2 border-gray-600">
+            {!! $body !!}
+        </div>
+
     </div>
 
 @endsection

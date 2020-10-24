@@ -34,6 +34,7 @@ class MailViewController extends BaseController
 
         $attributes = [
             'title' => MailViewFinder::methodToTitle($methodName),
+            'breakpoints' => config('mail-view.breakpoints'),
             'subject' => $message->getHeaders()->getAll('subject'),
             'from' => $message->getHeaders()->getAll('from'),
             'headers' => $message->getHeaders()->getAll(),
@@ -63,7 +64,7 @@ class MailViewController extends BaseController
 
         $templateList->flatten(1)->each(function ($attr) use ($email) {
             $mailable = (new $attr['className'])->{$attr['methodName']}();
-            return Mail::to($email)->send($mailable);
+            Mail::to($email)->send($mailable);
         });
 
         return redirect(route('mail-view.index'))->with('status', "All emails preview were sent to $email");

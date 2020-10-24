@@ -9,6 +9,7 @@
     <title>[MailView] @yield('title')</title>
 
     <link href="https://unpkg.com/tailwindcss@1.9.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.1/dist/alpine.min.js" defer></script>
 </head>
 <body class="font-sans leading-none text-gray-900 antialiased bg-gray-100">
 
