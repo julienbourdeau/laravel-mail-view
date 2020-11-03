@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="flex justify-between max-w-6xl">
-        <h1 class="text-4xl font-bold mb-12">Mail View</h1>
+        <h1 class="text-4xl font-bold mb-12">Mailable Preview</h1>
         <div id="page-actions">
             <a href="{{ route('mail-view.send-all') }}" class="block mt-1 py-2 px-3 bg-white text-gray-700 uppercase text-sm font-semibold shadow rounded border hover:border-gray-700">Send all</a>
         </div>

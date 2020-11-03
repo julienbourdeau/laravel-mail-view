@@ -6,10 +6,14 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>[MailView] @yield('title')</title>
-
     <link href="https://unpkg.com/tailwindcss@1.9.0/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.1/dist/alpine.min.js" defer></script>
+
+    @if(\Illuminate\Support\Facades\View::exists('mail-view::head'))
+        @include('mail-view::head')
+    @endif
+
+    <title>[MailView] @yield('title')</title>
 </head>
 <body class="font-sans leading-none text-gray-900 antialiased bg-gray-100">
 
