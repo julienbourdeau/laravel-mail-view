@@ -4,6 +4,16 @@
 
 ![Laravel MailView Logo Banner](https://user-images.githubusercontent.com/1525636/96405824-66339300-11de-11eb-9698-11c69b0ed60a.png)
 
+--- 
+
+> **Don’t use!** This package is retired: it broke after Laravel v8.33 was released.
+>
+> Use [Xammie/mailbook](https://github.com/Xammie/mailbook) instead.
+>
+> Read more: https://julienbourdeau.com/retiring-laravel-mail-view-package
+
+--- 
+
 This package lets you preview how your emails look by visiting a special URL that renders them. The goal is to create 
 a fake situation (create dummy user with orders for instance) to help you design the email templates.
 
@@ -21,12 +31,12 @@ and the `mail view` name is an homage to the [original gem](https://guides.rubyo
 
 ## Installation & Usage
 
-Please find the complete documentation here: https://www.sigerr.org/docs/laravel-mail-view
+Please find the complete documentation here: https://julienbourdeau.com/docs/laravel-mail-view
 
 
 ### Changelog
 
-Please see [CHANGELOG](https://www.sigerr.org/docs/laravel-mail-view#changelog) for more information what has changed recently.
+Please see [CHANGELOG](https://julienbourdeau.com/docs/laravel-mail-view#changelog) for more information what has changed recently.
 
 ## Contributing
 
