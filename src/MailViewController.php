@@ -30,7 +30,11 @@ class MailViewController extends BaseController
         $reflextionMethod = $reflexionClass->getMethod($methodName);
 
         /** @var \Illuminate\Mail\Message $message */
-        $message = $mailable->send($this->getNullMailer());
+        $message = null;
+        $mailable->withSwiftMessage(function($msg) use (&$message){
+            $message = $msg;
+        });
+        $mailable->send($this->getNullMailer());
 
         $attributes = [
             'title' => MailViewFinder::methodToTitle($methodName),
@@ -38,7 +42,7 @@ class MailViewController extends BaseController
             'subject' => $message->getHeaders()->getAll('subject'),
             'from' => $message->getHeaders()->getAll('from'),
             'headers' => $message->getHeaders()->getAll(),
-            'body' => $message->getSwiftMessage()->getBody(),
+            'body' => $message->getBody(),
             'attributes' => MailViewFinder::getMethodAttributes($reflextionMethod),
         ];
 
